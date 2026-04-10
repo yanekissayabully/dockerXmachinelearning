@@ -32,7 +32,7 @@ ml-fastapi-docker/
 
 1. **Клонируй репозиторий:**
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/yanekissayabully/dockerXmachinelearning.git>
 cd ml-fastapi-docker
 
 
@@ -192,16 +192,5 @@ json
 }
 Нажми Send
 
-
-
-
- Полезные ссылки
-FastAPI документация
-
-Scikit-learn документация
-
-Docker документация
-
-Uvicorn документация
 
 
