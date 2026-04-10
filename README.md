@@ -1,21 +1,13 @@
-# ML API для классификации Iris 🌸
+# ML API для классификации Iris 
 
 Простой REST API для предсказания вида ириса на основе его характеристик. Модель обучена на классическом датасете Iris с использованием Random Forest классификатора. API контейнеризирован с помощью Docker для простого развертывания.
-
-## 🎯 О проекте
-
-Проект демонстрирует полный цикл разработки и развертывания ML сервиса:
-1. Обучение модели классификации (Random Forest)
-2. Создание REST API с помощью FastAPI
-3. Контейнеризация приложения с Docker
-4. Тестирование API через Swagger, cURL и Postman
 
 Модель предсказывает один из трех видов ириса:
 - **Setosa** (0)
 - **Versicolor** (1)  
 - **Virginica** (2)
 
-## 🛠 Технологии
+## Технологии
 
 - **Python** 3.11 - язык программирования
 - **FastAPI** - веб-фреймворк для создания API
@@ -24,7 +16,7 @@
 - **Uvicorn** - ASGI сервер
 - **Joblib** - сохранение и загрузка модели
 
-## 📁 Структура проекта
+## Структура проекта
 ml-fastapi-docker/
 ├── main.py # FastAPI приложение
 ├── train.py # Скрипт для обучения модели
@@ -34,13 +26,7 @@ ml-fastapi-docker/
 └── README.md # Документация проекта
 
 
-## 📦 Предварительные требования
-
-- **Python** 3.11 или выше
-- **Docker** (для запуска в контейнере)
-- **Git** (опционально)
-
-## 🚀 Установка и запуск
+## Установка и запуск
 
 ### Локальный запуск
 
@@ -48,46 +34,46 @@ ml-fastapi-docker/
 ```bash
 git clone <your-repo-url>
 cd ml-fastapi-docker
-Установи зависимости:
+
 
 bash
 pip install -r requirements.txt
-Обучи модель:
+
 
 bash
 python train.py
-Запусти API сервер:
+
 
 bash
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 Открой в браузере: http://localhost:8000/docs
 
 Запуск через Docker
-Собери Docker образ:
+
 
 bash
 docker build -t ml-iris-api .
-Запусти контейнер:
+
 
 bash
 docker run -d -p 8001:8000 --name ml-iris-container ml-iris-api
-Проверь, что контейнер работает:
+
 
 bash
 docker ps
-Посмотри логи:
+
 
 bash
 docker logs ml-iris-container
-Останови контейнер:
+
 
 bash
 docker stop ml-iris-container
-Удали контейнер:
+
 
 bash
 docker rm ml-iris-container
-📡 API Эндпоинты
+API Эндпоинты
 GET /
 Проверка работоспособности API.
 
@@ -143,7 +129,7 @@ json
         "virginica": 0.01
     }
 }
-📝 Примеры использования
+ Примеры использования
 cURL
 GET запрос:
 
@@ -206,104 +192,10 @@ json
 }
 Нажми Send
 
-🧪 Тестирование
-Тестовые примеры
-Пример 1 - Setosa:
 
-json
-{
-    "sepal_length": 5.1,
-    "sepal_width": 3.5,
-    "petal_length": 1.4,
-    "petal_width": 0.2
-}
-Пример 2 - Versicolor:
 
-json
-{
-    "sepal_length": 6.5,
-    "sepal_width": 2.8,
-    "petal_length": 4.6,
-    "petal_width": 1.5
-}
-Пример 3 - Virginica:
 
-json
-{
-    "sepal_length": 7.2,
-    "sepal_width": 3.0,
-    "petal_length": 6.0,
-    "petal_width": 2.2
-}
-Проверка через Swagger UI
-Запусти API
-
-Открой браузер по адресу: http://localhost:8000/docs
-
-Нажми на эндпоинт POST /predict
-
-Нажми Try it out
-
-Введи тестовые данные
-
-Нажми Execute
-
-⚠️ Возможные ошибки и их решение
-Ошибка: "Port is already allocated"
-Решение:
-
-bash
-# Проверь, какой процесс использует порт
-netstat -ano | findstr :8000
-
-# Останови конфликтующий контейнер
-docker stop <container_name>
-docker rm <container_name>
-
-# Или используй другой порт
-docker run -d -p 8001:8000 --name ml-iris-container ml-iris-api
-Ошибка: "No module named 'numpy._core'"
-Решение: Переобучи модель с совместимыми версиями:
-
-bash
-pip install scikit-learn==1.3.0 numpy==1.24.3
-python train.py
-docker build --no-cache -t ml-iris-api .
-Ошибка: "Container name already in use"
-Решение:
-
-bash
-# Удали существующий контейнер
-docker rm ml-iris-container
-
-# Или используй другое имя
-docker run -d -p 8000:8000 --name ml-iris-container-new ml-iris-api
-Ошибка: "Model not loaded"
-Решение:
-
-bash
-# Проверь, существует ли файл модели
-ls model.joblib
-
-# Если нет - обучи модель
-python train.py
-
-# Пересобери Docker образ
-docker build --no-cache -t ml-iris-api .
-📄 Лицензия
-Этот проект создан в учебных целях для демонстрации контейнеризации ML приложений.
-
-👥 Автор
-[Твое имя]
-
-🙏 Благодарности
-Scikit-learn за датасет Iris
-
-FastAPI за отличный фреймворк
-
-Docker за удобную контейнеризацию
-
-🔗 Полезные ссылки
+ Полезные ссылки
 FastAPI документация
 
 Scikit-learn документация
@@ -312,15 +204,4 @@ Docker документация
 
 Uvicorn документация
 
-📞 Поддержка
-Если у тебя возникли проблемы:
 
-Проверь логи контейнера: docker logs ml-iris-container
-
-Проверь, что модель существует: ls model.joblib
-
-Убедись, что порт свободен: netstat -ano | findstr :8000
-
-Пересобери образ с флагом --no-cache
-
-Happy Coding! 🚀
